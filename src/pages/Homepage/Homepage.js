@@ -65,7 +65,7 @@ export default function Homepage() {
                                             </ScrollLink>
                                         </li>
                                         <li>
-                                            <Link target="__blank" to="/resume.pdf">
+                                            <Link target="__blank" to={`${process.env.PUBLIC_URL}/resume.pdf`}>
                                                 Go to Resume
                                             </Link>
                                         </li>
@@ -115,7 +115,7 @@ export default function Homepage() {
                                     <Spring to={{ opacity: isVisible ? 1 : 0 }}
                                     >
                                         {({ opacity }) => (
-                                        <div className="image" style={{ backgroundImage: 'url("images/man.png")', opacity }}></div>
+                                        <div className="image" style={{ backgroundImage: `url("${process.env.PUBLIC_URL}/images/man.png")`, opacity }}></div>
                                         )}
                                     </Spring>
                                     <Spring to={{ opacity: isVisible ? 1 : 0 }}
@@ -328,7 +328,7 @@ export default function Homepage() {
                         <div className="content flex items-center">
                             <h1 className="title">Get in touch</h1>
                             <p className="description">Let's connect.</p>
-                            <Link to="/contact">
+                            <Link to={`${process.env.PUBLIC_URL}/contact`}>
                                 <Button type="blue">Contact Me</Button>
                             </Link>
                         </div>

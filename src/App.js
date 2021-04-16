@@ -12,7 +12,6 @@ function usePageViews() {
   let location = useLocation();
   useEffect(() => {
     //ga.send(["pageview", location.pathname]);
-    console.log(location.hash)
     if(location.hash){
         console.log(location.hash.slice(1))
       }
@@ -27,10 +26,10 @@ function usePageViews() {
 function Routes({location}) {
   usePageViews();
   return <Switch location={location}>
-  <Route exact path={"/"} render={(e) => {
+  <Route exact path={process.env.PUBLIC_URL+"/"} render={(e) => {
       return <Homepage />;
   }} />
-  <Route exact path={"/contact"} render={(e) => {
+  <Route exact path={process.env.PUBLIC_URL+"/contact"} render={(e) => {
       return <Contact />;
   }} />
   {/* <Route path="/page-not-found" exact>
@@ -40,18 +39,6 @@ function Routes({location}) {
 }
 
 function App() {
-  
-  // useEffect(() => {
-    // console.log(location)
-    // if(location.hash){
-    //   console.log(location.hash.slice(1))
-    // }
-    // scroller.scrollTo(location.hash.slice(1), {
-    //   duration: 800,
-    //   delay: 0,
-    //   smooth: "easeInOutQuart",
-    // });
-  // }, [])
 
   return (
     <BrowserRouter basename="/">
@@ -60,7 +47,7 @@ function App() {
             return (
             <>
             <ModalController />
-            {/* <ScrollToTop /> */}
+            <ScrollToTop />
             <TransitionGroup>
               <CSSTransition
                 key={location.key}

@@ -37,56 +37,13 @@ export default function Project({
     }
     
     return (
-        <div className="project flex pointer" onMouseEnter={() => setHover(!hover)} onMouseLeave={() => setHover(!hover)} style={{ backgroundImage: hover ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/${img}")` : `url("images/${img}")` }} onClick={() => openModal()}>
+        <div className="project flex pointer" onMouseEnter={() => setHover(!hover)} onMouseLeave={() => setHover(!hover)} style={{ backgroundImage: hover ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${process.env.PUBLIC_URL}/images/${img}")` : `url("${process.env.PUBLIC_URL}/images/${img}")` }} onClick={() => openModal()}>
             {/* Site as background with search icon in center */}
             <Icon 
             path={mdiMagnify}
             size={1.7}
             color="#fff"
             className="icon"/>
-            {/* <div className="image" style={{ backgroundImage: `url("images/${img}")` }}>Replace With a gif</div>
-            <div className="content relative">
-                <h1 className="type">
-                    {type}
-                </h1>
-                <h1 className="title">
-                    {title}
-                </h1>
-                <p className="description">
-                    {description}
-                </p>
-                <ul className="slugs flex">
-                    {
-                       slugs.map((slug, index) => {
-                           return(
-                               <li key={index} className="flex items-center">
-                                   {slug}
-                               </li>
-                           )
-                       }) 
-                    }
-                </ul>
-                <ul className="links flex absolute">
-                    <li>
-                        <Link to={{ pathname: github }} target="__blank" title="View the Code" className="flex items-center">
-                            <Icon 
-                            path={mdiGithub}
-                            size={0.9}
-                            color="#000"/>
-                            <p>View the Code</p>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={{ pathname: siteURL }} target="__blank" title="Go to the Website" className="flex items-center">
-                            <Icon 
-                            path={mdiWeb}
-                            size={0.9}
-                            color="#000"/>
-                            <p>Lauch Site</p>
-                        </Link>
-                    </li>
-                </ul>
-            </div> */}
         </div>
     )
 }

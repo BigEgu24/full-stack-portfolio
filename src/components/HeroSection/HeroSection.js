@@ -8,7 +8,7 @@ export default function HeroSection(props) {
                 props.homepage ? (
                     <div 
                     className={props.flex ? `hero-section homepage-banner flex ${props.alignItemsCenter ? "items-center" : null}` : "hero-section"}
-                    style={{ backgroundImage: 'url("images/code-computer.png")' }}
+                    style={{ backgroundImage: `url("${process.env.PUBLIC_URL}/images/code-computer.png")` }}
                     >
                         {props.children}
                     </div>

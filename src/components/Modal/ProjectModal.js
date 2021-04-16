@@ -21,7 +21,7 @@ export default function ProjectModal() {
                 <span className="close" onClick={() => setModal('')}>&times;</span>
             </div>
             <div className="modal-body flex">
-                <div className="image" style={{ backgroundImage: `url("images/${project.img}")` }}>Replace With a gif</div>
+                <div className="image" style={{ backgroundImage: `url("${process.env.PUBLIC_URL}/images/${project.img}")` }}>Replace With a gif</div>
                 <div className="content relative">
                     <h1 className="type">
                         {project.type}
