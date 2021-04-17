@@ -3,7 +3,7 @@ import "./Header.scss";
 import Wrapper from '../Wrapper/Wrapper';
 import Icon from '@mdi/react';
 import { 
-    mdiChevronLeft
+    mdiMenu
 } from '@mdi/js';
 const Link = require("react-router-dom").Link;
 
@@ -35,6 +35,12 @@ export default function Header() {
                         <Link to={process.env.PUBLIC_URL+"/contact"}>Contact</Link>
                     </li>
                 </ul>
+                <div className="mobile-menu-bars pointer">
+                    <Icon 
+                    path={mdiMenu}
+                    size={1.1}
+                    color="var(--primary-dark)"/>
+                </div>
             </Wrapper>
         </header>
     )

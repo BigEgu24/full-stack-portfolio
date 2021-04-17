@@ -28,6 +28,11 @@ header{
             }
         }
     }
+    .mobile-menu-bars{
+        display: none;    
+        width: 1.65rem;
+        height: 1.65rem;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -49,11 +54,16 @@ header{
         height: 100vh;
         background: var(--primary-dark);
         flex-direction: column;
+        opacity: 0;
+        z-index: 0;
         li{
             a{
                 color: #fff!important;
             }
         }
+    }
+    .mobile-menu-bars{
+        display: block!important;
     }
 }
 @media only screen and (max-width: 600px) {
