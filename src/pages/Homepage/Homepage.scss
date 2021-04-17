@@ -82,12 +82,14 @@
         li{
             margin: 8px;
             margin-block-end: 1rem;
-            transition: ease-in-out 0.3s;
+            transition: ease-out 0.3s;
             &:hover{
                 transform: translateY(-5px);
+                transition: ease-in 0.3s;
             }
             p{
                 font-size: 0.8rem;
+                pointer-events: none;
             }
         }
     }

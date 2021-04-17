@@ -15,10 +15,10 @@ export default function ProjectModal() {
     const {modal, project} = values;
     return (
         <div className={modal==="project" ? "modal active project-modal relative" : "modal project-modal relative"}>
-        <div className="background full-width full-height absolute" onClick={() => setModal('')}></div>
+        <div className="background full-width full-height absolute" onClick={() => setModal({ type: '' })}></div>
         <div className="modal-content margin-auto">
             <div className="modal-header">
-                <span className="close" onClick={() => setModal('')}>&times;</span>
+                <span className="close" onClick={() => setModal({ type: '' })}>&times;</span>
             </div>
             <div className="modal-body flex">
                 <div className="image" style={{ backgroundImage: `url("${process.env.PUBLIC_URL}/images/${project.img}")` }}>Replace With a gif</div>
