@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Contact.scss";
 import Icon from '@mdi/react';
 import { 
@@ -8,6 +8,64 @@ import Button from '../../components/Button/Button';
 const Link = require("react-router-dom").Link;
 
 export default function Contact() {
+    const [input, setInput] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+    const inputChange = (e) => {
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const postData = async (url = '', data = {}) => {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "POST",
+            cache: "no-cache",
+            credentials: "omit",
+            redirect: 'follow',
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+    function capitalize(str) {
+        return str.replace(/\w\S*/g, function(txt){
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    }
+    const formSubmit = async (e) => {
+        e.preventDefault();
+        const id = "AKfycbz2xvCNeuRrOIWMAZNSttJ55uHxKdDeLqZvBNFA0etOrYD9wNEjEzXAgRbhqJjYjVNFJg";
+        const URL = `https://script.google.com/macros/s/${id}/exec`;
+        const message = `
+            <h3>
+                Message from ${capitalize(input.name)} using the Portfolio Contact Form
+            </h3>
+            <p>
+                ${input.message}
+            </p>
+        `
+        let payload = {
+            Subject: `Portfolio Contact Form Message From ${capitalize(input.name)}`,
+            Email: input.email,
+            Message: message
+        }
+
+        postData(URL, payload)
+        .then(data => {
+            console.log(data); // JSON data parsed by `data.json()` call
+            if(data.success===true){
+                console.log("Success!!")
+            }
+        })
+        .catch(() => (error) => { 
+            console.log(error)
+        })
+    }
 
     return (
         <div className="contact-page" style={{ backgroundImage: `url('${process.env.PUBLIC_URL}/images/nature.png')` }}>
@@ -19,29 +77,28 @@ export default function Contact() {
                 <p className="relative">Back</p>
             </Link>
             <div className="contact-form absolute flex column">
-                <div className="container margin-auto">
+                <form className="container margin-auto" onSubmit={(e) => formSubmit(e)} method="POST">
                     <h1 className="title">Contact</h1>
                     <div className="input flex column">
                         <label htmlFor="name">Name</label>
-                        <input type="text" name="name" />
+                        <input type="text" name="name"  onChange={(e) => inputChange(e)} value={input.name}/>
                     </div>
                     <div className="input flex column">
                         <label htmlFor="email">Email Address</label>
-                        <input type="text" name="email" />
+                        <input type="text" name="email"  onChange={(e) => inputChange(e)} value={input.email}/>
                     </div>
                     <div className="input flex column">
                         <label htmlFor="message">Message</label>
-                        <textarea name="message" cols="30" rows="10"></textarea>
+                        <textarea name="message" cols="30" rows="10" onChange={(e) => inputChange(e)} value={input.message}></textarea>
                     </div>
                     <div className="flex" style={{ float: 'right' }}>
                         <Button
                             type="blue"
-
                         >
                             SEND
                         </Button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     )

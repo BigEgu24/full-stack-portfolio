@@ -283,7 +283,7 @@ export default function Homepage() {
                             partialVisibility={true}
                         >
                             {({ isVisible }) => (
-                                <div className="flex">
+                                <div className="container grid flex">
                                     <Spring delay={150}
                                         from={{ opacity: isVisible ? 1 : 0, marginLeft: -500 }}
                                         to={{ opacity: isVisible ? 1 : 0, marginLeft: 0 }}
@@ -295,6 +295,26 @@ export default function Homepage() {
                                         )}
                                     </Spring>
                                     <Spring delay={350}
+                                        from={{ opacity: isVisible ? 1 : 0, marginLeft: -500 }}
+                                        to={{ opacity: isVisible ? 1 : 0, marginLeft: 0 }}
+                                        >
+                                        {({ opacity }) => (
+                                            <span style={{opacity}}>
+                                                <Project {...Project1}/>
+                                            </span>
+                                        )}
+                                    </Spring>
+                                    <Spring delay={550}
+                                        from={{ opacity: isVisible ? 1 : 0, marginLeft: -500 }}
+                                        to={{ opacity: isVisible ? 1 : 0, marginLeft: 0 }}
+                                        >
+                                        {({ opacity }) => (
+                                            <span style={{opacity}}>
+                                                <Project {...Project1}/>
+                                            </span>
+                                        )}
+                                    </Spring>
+                                    <Spring delay={550}
                                         from={{ opacity: isVisible ? 1 : 0, marginLeft: -500 }}
                                         to={{ opacity: isVisible ? 1 : 0, marginLeft: 0 }}
                                         >

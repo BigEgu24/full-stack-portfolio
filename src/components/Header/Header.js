@@ -1,6 +1,10 @@
 import React from 'react';
 import "./Header.scss";
 import Wrapper from '../Wrapper/Wrapper';
+import Icon from '@mdi/react';
+import { 
+    mdiChevronLeft
+} from '@mdi/js';
 const Link = require("react-router-dom").Link;
 
 export default function Header() {
