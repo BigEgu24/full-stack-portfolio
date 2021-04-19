@@ -39,7 +39,7 @@ export default function Contact() {
     }
     const formSubmit = async (e) => {
         e.preventDefault();
-        const id = "AKfycbz2xvCNeuRrOIWMAZNSttJ55uHxKdDeLqZvBNFA0etOrYD9wNEjEzXAgRbhqJjYjVNFJg";
+        const id = "AKfycbyrGLJAMSNMDZFFVLcH5QOetvfS0MKHDp2veGW8IdW7GS1ACkVXKL-LTMBNlURmF4GCIQ";
         const URL = `https://script.google.com/macros/s/${id}/exec`;
         const message = `
             <h3>
@@ -48,10 +48,14 @@ export default function Contact() {
             <p>
                 ${input.message}
             </p>
+            <br />
+            <br />
+            <p>
+                Contact Us At ${input.email}
+            </p>
         `
         let payload = {
             Subject: `Portfolio Contact Form Message From ${capitalize(input.name)}`,
-            Email: input.email,
             Message: message
         }
 

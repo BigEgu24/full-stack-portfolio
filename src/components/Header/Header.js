@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Header.scss";
 import Wrapper from '../Wrapper/Wrapper';
 import Icon from '@mdi/react';
 import { 
-    mdiMenu
+    mdiMenu,
+    mdiClose
 } from '@mdi/js';
 const Link = require("react-router-dom").Link;
 
 export default function Header() {
-    
+    const [nav, toggleNav] = useState(false);
     return (
         <header className="flex">
             <Wrapper 
@@ -21,7 +22,21 @@ export default function Header() {
                         <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="" className="img" height="45" width="47"/>
                     </Link>
                 </div>
-                <ul className="nav flex">
+                <ul className={nav ? "nav flex relative active" : "nav flex relative"}>
+                    <div className="mobile-header flex">
+                        <Wrapper 
+                            flex={true}
+                            flexEnd={true}
+                            itemsCenter
+                        >
+                            <Icon 
+                            path={mdiClose}
+                            size={1.1}
+                            color="#fff"
+                            className="mobile-header-icon pointer"
+                            onClick={() => toggleNav(!nav)}/>
+                        </Wrapper>
+                    </div>
                     <li>
                         <Link to={process.env.PUBLIC_URL+"/about"}>About</Link>
                     </li>
@@ -35,7 +50,7 @@ export default function Header() {
                         <Link to={process.env.PUBLIC_URL+"/contact"}>Contact</Link>
                     </li>
                 </ul>
-                <div className="mobile-menu-bars pointer">
+                <div className="mobile-menu-bars pointer" onClick={() => toggleNav(!nav)}>
                     <Icon 
                     path={mdiMenu}
                     size={1.1}
