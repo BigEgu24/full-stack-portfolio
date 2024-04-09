@@ -1,0 +1,51 @@
+{
+  "name": "full-stack-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://bigegu24.github.io/full-stack-portfolio/",
+  "scripts": {
+    "start": "PORT=9000 react-scripts start",
+    "build": "rimraf build && react-scripts build",
+    "deploy": "gh-pages -t -d build"
+  },
+  "dependencies": {
+    "@mdi/js": "^7.4.47",
+    "@mdi/react": "^1.6.1",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.2",
+    "@testing-library/user-event": "^14.5.2",
+    "gh-pages": "^6.1.1",
+    "node-sass": "^9.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^5.0.1",
+    "react-scroll": "^1.9.0",
+    "react-spring": "8.0.1",
+    "react-transition-group": "^4.4.5",
+    "react-visibility-sensor": "^5.1.1",
+    "rimraf": "^5.0.5",
+    "web-vitals": "^3.5.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
+}
